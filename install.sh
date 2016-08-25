@@ -17,3 +17,4 @@ cd Github/
 git clone https://github.com/WhiteCoreSim/WhiteCore-Dev.git
 cd WhiteCore-Dev/
 ./runprebuild.sh
+xbuild
