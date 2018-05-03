@@ -1,19 +1,20 @@
 #!/bin/bash
-# Install Mono 4.4
-apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-echo "deb http://download.mono-project.com/repo/debian wheezy main" | tee /etc/apt/sources.list.d/mono-xamarin.list
-echo "deb http://download.mono-project.com/repo/debian wheezy-libjpeg62-compat main" | tee -a /etc/apt/sources.list.d/mono-xamarin.list
-apt-get update
-apt-get dist-upgrade
-apt-get install mono-complete
+# Install Mono 5.10.1 Stable (5.10.1.47)
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+sudo apt install apt-transport-https
+echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo apt-get install mono-complete
 # Install MariaDB Server
-apt-get install mariadb-server
+sudo apt-get install mariadb-server
 # Install Git
-apt-get install git
+sudo apt-get install git
+# Install WhiteCore
 cd /
 mkdir Github
 cd Github/
-git clone https://github.com/WhiteCoreSim/WhiteCore-Dev.git
+git clone --recursive https://github.com/WhiteCoreSim/WhiteCore-Dev.git
 cd WhiteCore-Dev/
 ./runprebuild.sh
 xbuild
